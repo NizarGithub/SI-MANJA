@@ -19,7 +19,7 @@
                     <div class="col-xs-12" style="line-height: 26px">
                         <span style="font-size: 20pt">{{$user->name}} </span> <br>
                         {{$user->address}} <br>
-                        <span>- Kec : {{$user->kecamatan->name}} </span><br>
+                        <span>- Kec : {{($user->kecamatan) ? $user->kecamatan->name : ''}} </span><br>
                         <span>- HP : {{$user->hp}}</span>
                     </div>
                     <div class="clearfix"></div>
