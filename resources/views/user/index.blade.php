@@ -27,7 +27,7 @@
 
                             <tr class="row-table" data-row="{{$row}}" data-id = {{$k->id}}>
                                 <td>{{$k->name}}</td>
-                                <td>{{$k->kecamatan->name}}</td>
+                                <td>{{($k->kecamatan) ? $k->kecamatan->name : ''}}</td>
 
                             </tr>
 
