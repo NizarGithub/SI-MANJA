@@ -45,6 +45,7 @@
             color:#FFF;
             border-radius:50px;
             text-align:center;
+            z-index: 9999;
             box-shadow: 2px 2px 3px #999;
         }
 
@@ -106,20 +107,33 @@
 
             <ul class="nav">
                 <li>
+                    <a href="{{URL::to('/')}}">
+                        <i class="ti-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
                     @if(auth()->user()->role == \App\User::ROLE_MANAGER)
+                    <li>
                     <a href="{{URL::to('user')}}">
                         <i class="ti-user"></i>
                         <p>Data Pengguna</p>
                     </a>
+                        </li>
+                <li>
                     <a href="{{URL::to('kecamatan')}}">
                         <i class="ti-folder"></i>
                         <p>Data Kecamatan</p>
                     </a>
+                    </li>
                     @endif
+                <li>
                         <a href="{{URL::to('change_password')}}">
                             <i class="ti-lock"></i>
                             <p>Ubah Password</p>
                         </a>
+                    </li>
+                        <li>
                     <a href="{{URL::to('logout')}}">
                         <i class="fa fa-sign-out"></i>
                         <p>Logout</p>

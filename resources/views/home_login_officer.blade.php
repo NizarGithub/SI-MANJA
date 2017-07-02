@@ -19,6 +19,10 @@
         <div class="col-md-12 col-xs-12">
             <div class="card">
                 <div class="content">
+
+                    <a href="{{URL::to('kegiatan/create')}}" class="btn pull-right btn-fill btn-small btn-primary">
+                        <i class="fa fa-plus"></i> Tambah Kegiatan
+                    </a><div class="clearfix"></div><hr>
                     <i class="fa fa-circle text-success"> </i>sudah dikerjakan
                     <i class="fa fa-circle text-danger"> </i>belum dikerjakan
                     {{--<i class="fa fa-circle text-success"> sudah dikerjakan  --}}

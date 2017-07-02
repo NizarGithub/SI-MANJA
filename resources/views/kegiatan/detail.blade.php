@@ -7,6 +7,7 @@
         <div class="col-md-12 col-xs-12">
             <div class="card">
                 <div class="content">
+                    <a href="{{URL::to('/')}}"><i class="ti-arrow-left"></i> Kembali</a>
                     <h4>{{$kegiatan->name}}</h4>
                     <div class="pull-left">oleh : {{$kegiatan->pic}}</div>
                     <div class="pull-right">{{$kegiatan->date}}</div>
