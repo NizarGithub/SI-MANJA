@@ -28,7 +28,7 @@
                         <div class="">
                             <div class="form-group">
                                 <label>Kode Kecamatan</label>
-                                <input name="code" id="edit-code" type="text" class="form-control border-input" placeholder="Kode Kecamatan" maxlength="2">
+                                <input name="code" id="edit-code" type="text" class="form-control border-input" placeholder="Kode Kecamatan" >
                             </div>
                             <div class="form-group">
                                 <label>Nama Kecamatan</label>
