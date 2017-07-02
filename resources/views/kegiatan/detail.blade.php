@@ -80,7 +80,16 @@
                 <div class="card">
                     <div class="content">
                         <div class="text-center">
+                            @if($kegiatan->laporan)
+                            <h4>Penilaian :</h4>
+                            <select id="example">
+                                @for($i = 1 ; $i <=10 ; $i++)
+                                    <option value="{{$i}}" <?php echo ($kegiatan->rating == $i) ? "selected" : "" ?>>{{$i}}</option>
+                                @endfor
+                            </select>
+                            @endif
                             @if($kegiatan->laporan AND $kegiatan->is_received == false)
+
                                 <a href="{{URL::to('kegiatan/laporan/received/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Terima Laporan</a>
                             @endif
                         </div>
@@ -91,6 +100,28 @@
     @endif
 @endsection
 
+@section('css')
+
+@endsection
+
 @section('js')
+    <script type="text/javascript">
+        $(function() {
+            $('#example').barrating({
+                theme: 'fontawesome-stars',
+                onSelect:function(value, text, event){
+                    $.ajax({
+                        method: "POST",
+                        url: "{{URL::to('kegiatan/laporan/rating/'.$kegiatan->id)}}",
+                        data: { rate: value }
+                    })
+                            .done(function( msg ) {
+//                                alert( "Data Saved: " + msg );
+                            });
+                }
+            });
+        });
+    </script>
+
 
 @endsection

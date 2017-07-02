@@ -53,5 +53,15 @@ class LaporanController extends Controller
 
     }
 
+    public function rating($kegiatanId){
+
+        $rate = request('rate');
+
+        $kegiatan = Kegiatan::find($kegiatanId)->update(['rating' => $rate]);
+
+        if($kegiatan) return 'true';
+
+    }
+
 
 }

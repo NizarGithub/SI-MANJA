@@ -84,6 +84,8 @@
             outline: -webkit-focus-ring-color auto 5px;
         }
     </style>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/themes/fontawesome-stars.css">
     @section('css')
     @show
 
@@ -153,7 +155,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">SI MANJA</a>
+                    <a class="navbar-brand" href="{{URL::to('/')}}">SI-MANJA</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     {{--<ul class="nav navbar-nav navbar-right">--}}
@@ -281,6 +283,9 @@
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{{URL::to('/')}}/assets/js/paper-dashboard.js"></script>
+
+
+<script src="{{URL::to('/')}}/assets/js/jquery.barrating.min.js"></script>
 
 
 <script type="text/javascript">

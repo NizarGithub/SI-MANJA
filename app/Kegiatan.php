@@ -30,7 +30,8 @@ class Kegiatan extends Model
         'created_by',
         'kecamatan_code',
         'description',
-        'is_received'
+        'is_received',
+        'rating'
     ];
 
 

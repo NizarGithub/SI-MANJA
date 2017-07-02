@@ -42,4 +42,5 @@ class KegiatanController extends Controller
     public function detail($id){
         return view('kegiatan.detail')->with('kegiatan', Kegiatan::find($id));
     }
+
 }

@@ -45,3 +45,4 @@ Route::get('kegiatan/{id}', 'KegiatanController@detail');
 Route::get('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@create');
 Route::post('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@store');
 Route::get('kegiatan/laporan/received/{kegiatanId}', 'LaporanController@received');
+Route::post('kegiatan/laporan/rating/{kegiatanId}', 'LaporanController@rating');
