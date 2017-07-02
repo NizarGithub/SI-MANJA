@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    const ROLE_OFFICER = 'officer';
+    const ROLE_OFFICER = 'PLKB';
     const ROLE_MANAGER = 'manager';
 
     use Notifiable;
