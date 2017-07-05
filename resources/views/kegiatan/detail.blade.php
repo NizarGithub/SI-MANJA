@@ -39,7 +39,11 @@
                     <div class="content">
                         <h4>Ringkasan Laporan</h4>
 
-                        <div style="">Diterima : <img style="    width: 20px;" src="{{URL::to('/assets/img/accepted.png')}}"></div>
+                        @if($kegiatan->is_received)
+                            <div style="">Diterima : <img style="    width: 20px;" src="{{URL::to('/assets/img/accepted.png')}}"></div>
+                        @else
+                            <div style="">Diterima : <img style="    width: 20px;" src="{{URL::to('/assets/img/not_received.png')}}"></div>
+                        @endif
                         <div class="clearfix"></div>
                         <hr>
                         
@@ -56,8 +60,8 @@
             <div class="card">
                 <div class="content">
                     <div class="text-center">
-                        <a href="#" class="btn btn-fill btn-danger">Hapus</a>
-                        <a href="#" class="btn btn-fill btn-warning">Edit</a>
+                        <a href="{{URL::to('kegiatan/delete/'.$kegiatan->id)}}" class="btn btn-fill btn-danger" onclick="return confirm('Anda yakin untuk menghapus ?')">Hapus</a>
+                        <a href="{{URL::to('kegiatan/edit/'.$kegiatan->id)}}" class="btn btn-fill btn-warning">Edit</a>
                         @if(!$kegiatan->laporan)
                         <a href="{{URL::to('kegiatan/laporan/create/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Buat Laporan</a>
                         @endif

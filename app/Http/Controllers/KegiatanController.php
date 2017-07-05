@@ -43,4 +43,29 @@ class KegiatanController extends Controller
         return view('kegiatan.detail')->with('kegiatan', Kegiatan::find($id));
     }
 
+
+    public function delete($id){
+        Kegiatan::find($id)->delete();
+
+        return redirect('/')->with('status_success',  'Berhasil disimpan');
+    }
+
+    public function edit($id){
+
+        $kegiatan =  Kegiatan::find($id);
+        return view('kegiatan.create')->with('kegiatan', $kegiatan);
+    }
+
+    public function update($id){
+
+        $input = request()->all();
+
+        $kegiatan =  Kegiatan::find($id);
+        $kegiatan->update($input);
+
+        return redirect('kegiatan/'.$id)->with('status_success',  'Berhasil disimpan');
+
+
+    }
+
 }

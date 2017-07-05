@@ -40,9 +40,13 @@ Route::get('kegiatan/create', 'KegiatanController@create');
 Route::post('kegiatan/create', 'KegiatanController@store');
 Route::get('kegiatan/kecamatan/{kecamatanCode}', 'KegiatanController@byKecamatan');
 Route::get('kegiatan/{id}', 'KegiatanController@detail');
+Route::get('kegiatan/delete/{kegiatanId}', 'KegiatanController@delete');
+Route::get('kegiatan/edit/{kegiatanId}', 'KegiatanController@edit');
+Route::post('kegiatan/edit/{kegiatanId}', 'KegiatanController@update');
 
 
 Route::get('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@create');
 Route::post('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@store');
 Route::get('kegiatan/laporan/received/{kegiatanId}', 'LaporanController@received');
 Route::post('kegiatan/laporan/rating/{kegiatanId}', 'LaporanController@rating');
+

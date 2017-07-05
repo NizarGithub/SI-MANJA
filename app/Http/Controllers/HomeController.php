@@ -22,6 +22,7 @@ class HomeController extends Controller
                 return view('home_login_manager')->with('kecamatans', Kecamatan::all());
 
             }
+            echo auth()->user()->role;
 
         }else{
             return view('home_notlogin');
