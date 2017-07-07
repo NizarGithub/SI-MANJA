@@ -94,7 +94,7 @@
                                 @endfor
                             </select>
                             @endif
-                            @if(!$kegiatan->status == \App\Kegiatan::STATUS_SUDAH_DIKERJAKAN AND $kegiatan->is_received == false)
+                            @if($kegiatan->is_received == false)
                                     <a href="{{URL::to('kegiatan/laporan/unreceived/'.$kegiatan->id)}}" class="btn btn-fill btn-danger">Tolak Laporan</a>
                                     <a href="{{URL::to('kegiatan/laporan/received/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Terima Laporan</a>
                             @endif
