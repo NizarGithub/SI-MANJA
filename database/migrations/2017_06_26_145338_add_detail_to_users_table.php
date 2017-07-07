@@ -15,7 +15,7 @@ class AddDetailToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('kecamatan_code','2');
+            $table->string('kecamatan_code');
             $table->string('hp');
             $table->string('address');
 

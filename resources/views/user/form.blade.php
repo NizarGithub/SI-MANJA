@@ -48,6 +48,7 @@
                 <div class="form-group">
                     <label>Kecamatan</label>
                     <select name="kecamatan_code" class="form-control border-input">
+                        <option value="">pilih kecamatan</option>
                         @foreach (\App\Kecamatan::all() as $key => $value)
                             <option value="{{ $value->code }}" {{ (isset($user->kecamatan_code) AND $user->kecamatan_code == $value->code) ? 'selected' : ''}}>{{ $value->name }}</option>
                         @endforeach
