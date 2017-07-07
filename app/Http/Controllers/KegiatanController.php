@@ -47,7 +47,7 @@ class KegiatanController extends Controller
     public function delete($id){
         Kegiatan::find($id)->delete();
 
-        return redirect('/')->with('status_success',  'Berhasil disimpan');
+        return redirect('/')->with('status_success',  'Berhasil dihapus');
     }
 
     public function edit($id){
