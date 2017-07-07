@@ -18,7 +18,7 @@ class LaporanController extends Controller
 
     public function create($kegiatanId){
 
-        return view('laporan.create')->with('kegiatanId', $kegiatanId);
+        return view('laporan.create')->with('kegiatanId', $kegiatanId)->with('kegiatan', Kegiatan::find($kegiatanId));
 
     }
 
