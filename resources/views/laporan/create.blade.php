@@ -18,11 +18,11 @@
                         <div class="">
                             <div class="form-group">
                                 <label>Laporan Selama Kegiatan</label>
-                                <div id="editor" contenteditable="true">
+                                <div id="editor" contenteditable="true">@if($kegiatan->laporan AND $kegiatan->laporan->note){{$kegiatan->laporan->note}}@endif
                                 </div>
                             </div>
                         </div>
-                        <textarea id="note" name="note" hidden ></textarea>
+                        <textarea id="note" name="note" hidden >@if($kegiatan->laporan AND $kegiatan->laporan->note){{$kegiatan->laporan->note}}@endif</textarea>
                         <hr>
 
                         {{--<h4>Foto Kegiatan</h4>--}}

@@ -38,7 +38,10 @@ class LaporanController extends Controller
 //            ]);
 //        }
 
-        $laporan = Laporan::create(['note' => request('note'), 'kegiatan_id'=> $kegiatanId]);
+        $laporan = Laporan::firstOrCreate(['kegiatan_id'=> $kegiatanId]);
+        $laporan->note = request('note');
+        $laporan->save();
+
         $kegiatan = Kegiatan::find($kegiatanId)->update([
             'status' => Kegiatan::STATUS_SUDAH_DIKERJAKAN
         ]);
