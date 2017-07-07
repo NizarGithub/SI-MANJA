@@ -39,7 +39,9 @@ class LaporanController extends Controller
 //        }
 
         $laporan = Laporan::create(['note' => request('note'), 'kegiatan_id'=> $kegiatanId]);
-        $kegiatan = Kegiatan::find($kegiatanId)->update(['status' => Kegiatan::STATUS_SUDAH_DIKERJAKAN]);
+        $kegiatan = Kegiatan::find($kegiatanId)->update([
+            'status' => Kegiatan::STATUS_SUDAH_DIKERJAKAN
+        ]);
 
         return redirect('kegiatan/'.$kegiatanId)->with('status_success',  'Berhasil disimpan');
 
@@ -51,6 +53,15 @@ class LaporanController extends Controller
 
         return redirect('kegiatan/'.$kegiatanId)->with('status_success',  'Berhasil disimpan');
 
+    }
+
+    public function unreceived($kegiatanId){
+
+        $kegiatan = Kegiatan::find($kegiatanId)->update([
+            'status' => Kegiatan::STATUS_BELUM_DIKERJAKAN
+        ]);
+
+        return redirect('kegiatan/'.$kegiatanId)->with('status_success',  'Berhasil disimpan');
     }
 
     public function rating($kegiatanId){

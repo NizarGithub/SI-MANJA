@@ -62,8 +62,10 @@
                     <div class="text-center">
                         <a href="{{URL::to('kegiatan/delete/'.$kegiatan->id)}}" class="btn btn-fill btn-danger" onclick="return confirm('Anda yakin untuk menghapus ?')">Hapus</a>
                         <a href="{{URL::to('kegiatan/edit/'.$kegiatan->id)}}" class="btn btn-fill btn-warning">Edit</a>
-                        @if(!$kegiatan->laporan)
+                        @if($kegiatan->status == \App\Kegiatan::STATUS_BELUM_DIKERJAKAN)
                         <a href="{{URL::to('kegiatan/laporan/create/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Buat Laporan</a>
+                        {{--@else--}}
+                            {{--<a href="{{URL::to('kegiatan/laporan/create/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Buat Laporan</a>--}}
                         @endif
                             <hr>
                         <ul style="text-align:left">
@@ -92,9 +94,9 @@
                                 @endfor
                             </select>
                             @endif
-                            @if($kegiatan->laporan AND $kegiatan->is_received == false)
-
-                                <a href="{{URL::to('kegiatan/laporan/received/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Terima Laporan</a>
+                            @if(!$kegiatan->status == \App\Kegiatan::STATUS_SUDAH_DIKERJAKAN AND $kegiatan->is_received == false)
+                                    <a href="{{URL::to('kegiatan/laporan/unreceived/'.$kegiatan->id)}}" class="btn btn-fill btn-danger">Tolak Laporan</a>
+                                    <a href="{{URL::to('kegiatan/laporan/received/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Terima Laporan</a>
                             @endif
                         </div>
                     </div>
