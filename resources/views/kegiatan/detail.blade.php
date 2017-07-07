@@ -54,7 +54,7 @@
         </div>
     @endif
 
-    @if(auth()->user()->role == \App\User::ROLE_OFFICER)
+    {{--@if(auth()->user()->role == \App\User::ROLE_OFFICER)--}}
     <div class="row">
         <div class="col-md-12 col-xs-12">
             <div class="card">
@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-    @endif
+    {{--@endif--}}
 
     @if(auth()->user()->role == \App\User::ROLE_MANAGER)
 
