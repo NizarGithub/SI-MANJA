@@ -48,6 +48,6 @@ Route::post('kegiatan/edit/{kegiatanId}', 'KegiatanController@update');
 Route::get('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@create');
 Route::post('kegiatan/laporan/create/{kegiatanId}', 'LaporanController@store');
 Route::get('kegiatan/laporan/received/{kegiatanId}', 'LaporanController@received');
-Route::get('kegiatan/laporan/unreceived/{kegiatanId}', 'LaporanController@unreceived');
+Route::post('kegiatan/laporan/unreceived/{kegiatanId}', 'LaporanController@unreceived');
 Route::post('kegiatan/laporan/rating/{kegiatanId}', 'LaporanController@rating');
 

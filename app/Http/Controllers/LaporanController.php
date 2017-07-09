@@ -60,8 +60,11 @@ class LaporanController extends Controller
 
     public function unreceived($kegiatanId){
 
+        $reason = request('reason');
+
         $kegiatan = Kegiatan::find($kegiatanId)->update([
-            'status' => Kegiatan::STATUS_BELUM_DIKERJAKAN
+            'status' => Kegiatan::STATUS_BELUM_DIKERJAKAN,
+            'reject_reason' => $reason
         ]);
 
         return redirect('kegiatan/'.$kegiatanId)->with('status_success',  'Berhasil disimpan');

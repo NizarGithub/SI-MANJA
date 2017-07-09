@@ -43,6 +43,13 @@
                             <div style="">Diterima : <img style="    width: 20px;" src="{{URL::to('/assets/img/accepted.png')}}"></div>
                         @else
                             <div style="">Diterima : <img style="    width: 20px;" src="{{URL::to('/assets/img/not_received.png')}}"></div>
+                            @if($kegiatan->reject_reason AND $kegiatan->status == \App\Kegiatan::STATUS_BELUM_DIKERJAKAN)
+                                <br><br>
+                                Alasan ditolak : <br>
+                                <div style="    border: 1px dashed #EB5E28;
+    padding: 10px;
+    margin: 10px;">{{$kegiatan->reject_reason}}</div>
+                            @endif
                         @endif
                         <div class="clearfix"></div>
                         <hr>
@@ -96,7 +103,7 @@
                             @endif
                             @if($kegiatan->status == \App\Kegiatan::STATUS_SUDAH_DIKERJAKAN)
                             @if($kegiatan->is_received == false)
-                                    <a href="{{URL::to('kegiatan/laporan/unreceived/'.$kegiatan->id)}}" class="btn btn-fill btn-danger">Tolak Laporan</a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-fill btn-danger">Tolak Laporan</a>
                                     <a href="{{URL::to('kegiatan/laporan/received/'.$kegiatan->id)}}" class="btn btn-fill btn-primary">Terima Laporan</a>
                             @endif
                             @endif
@@ -105,7 +112,39 @@
                 </div>
             </div>
         </div>
+
     @endif
+@endsection
+
+
+@section('modal')
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form class="" method="post" action="{{URL::to('kegiatan/laporan/unreceived/'.$kegiatan->id)}}">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Yakin Menolak Laporan ?</h4>
+                </div>
+                <div class="modal-body">
+
+                        <div class="">
+                        <div class="form-group">
+                            <label>Alasan</label>
+                            <textarea name="reason" class="form-control border-input" placeholder="Berikan alasan laporan ditolak" ></textarea>
+                        </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <input type="submit" class="btn btn-primary" value="Simpan"></input>
+                </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection
 
 @section('css')
