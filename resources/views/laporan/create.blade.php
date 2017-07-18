@@ -9,7 +9,7 @@
                 <div class="header">
                     <a href="{{URL::to('/kegiatan/'.$kegiatanId)}}"><i class="ti-arrow-left"></i> Kembali</a>
                     <h4 class="title">Laporan Kegiatan</h4>
-                    <small>Uraikan deskrpsi singkat selama kegiatan berlangsung. Anda bisa menambahkan file word sebagai referensi laporan</small>
+                    <small>Uraikan deskrpsi singkat selama kegiatan berlangsung</small>
                 </div>
                 <div class="content">
                     <form enctype="multipart/form-data" class="" method="post" action="{{URL::to('kegiatan/laporan/create/'.$kegiatanId)}}">
